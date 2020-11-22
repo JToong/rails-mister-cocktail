@@ -3,6 +3,7 @@
 #
 puts "Cleaning database..."
 Ingredient.destroy_all
+Cocktail.destroy_all
 
 Ingredient.create(name: "lemon")
 Ingredient.create(name: "ice")

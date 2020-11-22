@@ -1,0 +1,26 @@
+<h1>THis is the show page: <%= @cocktail.name %></h1>
+
+<%=  link_to 'Add new ingredient', new_cocktail_dose_path(@cocktail) %>
+
+
+      <h2>The Dose Recipe</h2>
+      <table>
+        <tbody>
+          <thead>
+            <th>Ingredient Name</th>
+            <th>Description</th>
+            <th>Delete</th>
+          </thead>
+          
+          <% @cocktail.doses.each do |dose| %>
+            <tr>
+              <td><%= dose.ingredient.name %></td>
+              <td><%= dose.description %></td>
+              <td>
+                <%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: "Confirm delete?" } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+  
